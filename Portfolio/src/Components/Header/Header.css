@@ -1,0 +1,33 @@
+.header{
+    color:burlywood;
+}
+
+.me{
+    color: aqua;
+    margin-left: 70%;
+}
+
+.navbar-nav{
+    margin-left: 70%;
+}
+
+.jumbotron{
+    margin-left: 20%;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+}
+.hello{
+    color: #41ead4;
+    font-family:cursive;
+}
+
+p{
+    color: #20b7d5;
+}
+
+
+
