@@ -1,0 +1,16 @@
+.jumbotron{
+    flex: 0 0 200px;
+    position: sticky;
+    top: 0;
+    height: 70vh;
+   
+}
+
+.scroll{
+    flex-grow: 1;
+   
+}
+
+/* .container-fluid{
+    margin-top: 10%;
+} */

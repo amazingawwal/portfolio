@@ -25,8 +25,8 @@ function Home(){
     }
 
     return(
-        <>
-            <div class="container-fluid">
+    <>
+    <div class="container-fluid">
      <div class="row">
         <aside class="col-lg jumbo">
             <div class="jumbotron">
@@ -39,11 +39,11 @@ function Home(){
             </div>
         </aside>
         <aside class="bio col-lg">
-        <div>{project}</div>
+        <div className="scroll">{project}</div>
         </aside>
      </div>
     </div>
-        </>
+    </>
     )
 }
 

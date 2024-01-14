@@ -5,8 +5,8 @@ import React from "react";
 function Header(){
     return (
     <>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="./assets/aa.png" alt="logo"/></a>
+        <nav class="nav-bar navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="" alt="logo"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>

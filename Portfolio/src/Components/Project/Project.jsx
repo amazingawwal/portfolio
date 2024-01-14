@@ -3,7 +3,7 @@ import "./Project.css"
 
 function Project(props){
     return(
-        <>
+        <div className="container">
         <div className="project-card">
             <div className="project-img">
                 <img src={props.image} alt={props.name} />
@@ -19,7 +19,7 @@ function Project(props){
                 </ul>
             </div>
          </div>   
-        </>
+        </div>
     )
 };
 
