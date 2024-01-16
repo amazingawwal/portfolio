@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import Home from '../Home/Home';
 import projects from "../Project Gallery/Project";
 import Project from '../Project/Project';
+import { NavLink, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // function createProject(project){
 //   return(
@@ -24,8 +25,14 @@ function App() {
 
   return (
     <>
-      <Header></Header>
-      <Home></Home>
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path='/' element={<Header/>}></Route> */}
+          <Route path='/' element={<Home/>}></Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <Header></Header>
+      <Home></Home> */}
       {/* {projects.map(createProject)} */}
     </>
   )

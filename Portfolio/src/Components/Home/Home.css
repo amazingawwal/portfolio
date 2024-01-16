@@ -2,13 +2,17 @@
     flex: 0 0 200px;
     position: sticky;
     top: 0;
-    height: 70vh;
+    height: 100vh;
    
 }
 
 .scroll{
     flex-grow: 1;
    
+}
+
+.contact-icon{
+    padding: 1rem;
 }
 
 /* .container-fluid{
