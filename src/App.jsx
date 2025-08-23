@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import navbar from "./Components/Navbar/navbar";
+import Hero from "./components/Hero/hero";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+return (
+<div className="font-sans">
+<Navbar />
+<main className="container max-w-6xl">
+<section id="home" className="section">
+<Hero />
+</section>
+
+
+<section id="about" className="section">
+<div className="card">
+<h2 className="text-2xl font-bold">About</h2>
+<p className="mt-3 text-gray-600 dark:text-gray-300">
+Short intro about you. We'll expand this in the next steps.
+</p>
+</div>
+</section>
+
+
+<section id="projects" className="section">
+<div className="card">
+<h2 className="text-2xl font-bold">Projects</h2>
+<p className="mt-3 text-gray-600 dark:text-gray-300">
+Project cards coming soon ✨
+</p>
+</div>
+</section>
+
+
+<section id="contact" className="section">
+<div className="card">
+<h2 className="text-2xl font-bold">Contact</h2>
+<p className="mt-3 text-gray-600 dark:text-gray-300">
+Call to action or contact form placeholder.
+</p>
+</div>
+</section>
+</main>
+
+
+<footer className="py-10 text-center text-sm text-gray-500 dark:text-gray-400">
+© {new Date().getFullYear()} Your Name
+</footer>
+</div>
+);
 }
-
-export default App
