@@ -18,7 +18,7 @@ document.documentElement.classList.remove("dark");
 return (
 <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md dark:bg-gray-900/70">
 <nav className="container mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-<a href="#home" className="text-xl font-bold text-sky-600">
+<a href="/" className="text-xl font-bold text-sky-600">
 MyPortfolio
 </a>
 
