@@ -1,16 +1,13 @@
 import { Routes, Route } from "react-router-dom"
-import Navbar from "./Components/Navbar/navbar"
-import ProjectView from "./pages/projectView"
-// import Hero from "./components/Hero/hero"
-// import Projects from "./components/Projects/projects"
-// import ProjectDetail from "./components/Projects/projectDetails"
+import Hero from "../components/Hero/hero"
+import Projects from "../components/Projects/projects"
+import ProjectDetail from "../components/Projects/projectDetails"
+import About from "./about"
 
-export default function App() {
-  return (
-    <div className="font-sans">
-      <Navbar />
-      <ProjectView/>
-      {/* <main className="container max-w-6xl">
+export default function ProjectView() {
+    return(
+        <>
+        <main className="container max-w-6xl">
         <Routes>
           <Route
             path="/"
@@ -20,12 +17,7 @@ export default function App() {
                   <Hero />
                 </section>
                 <section id="about" className="section">
-                  <div className="card">
-                    <h2 className="text-2xl font-bold">About</h2>
-                    <p className="mt-3 text-gray-600 dark:text-gray-300">
-                      Short intro about you. We'll expand this in the next steps.
-                    </p>
-                  </div>
+                  <About/>
                 </section>
                 <section id="projects" className="section">
                   <h2 className="text-3xl font-bold mb-6">Projects</h2>
@@ -44,10 +36,7 @@ export default function App() {
           />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
         </Routes>
-      </main> */}
-      <footer className="py-10 text-center text-sm text-gray-500 dark:text-gray-400">
-        © {new Date().getFullYear()} Your Name
-      </footer>
-    </div>
-  )
+      </main>
+        </>
+    )
 }
