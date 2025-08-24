@@ -7,12 +7,12 @@ export default function About() {
   return (
     <div className="grid gap-12 md:grid-cols-2">
       {/* Skills */}
-      <motion.div
+      <motion.div   
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-bold mb-6">Skills</h2>
+        <h2 className="text-3xl font-bold mb-6 ">Skills</h2>
         <div className="flex flex-wrap gap-3">
           {skills.map((skill, i) => (
             <span
@@ -32,7 +32,7 @@ export default function About() {
         transition={{ duration: 0.6, delay: 0.1 }}
       >
         <h2 className="text-3xl font-bold mb-6">Experience</h2>
-        <ol className="relative border-l border-gray-300 dark:border-gray-700">
+        <ol className="relative border-l ml-1 border-gray-300 dark:border-gray-700">
           {timeline.map((item, i) => (
             <li key={i} className="mb-10 ml-6">
               <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-sky-600 text-white text-xs font-bold">

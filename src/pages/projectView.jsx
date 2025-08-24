@@ -3,11 +3,12 @@ import Hero from "../components/Hero/hero"
 import Projects from "../components/Projects/projects"
 import ProjectDetail from "../components/Projects/projectDetails"
 import About from "./about"
+import Contact from "./contact"
 
 export default function ProjectView() {
     return(
         <>
-        <main className="container max-w-6xl">
+        <main className=" container max-w-6xl">
         <Routes>
           <Route
             path="/"
@@ -16,20 +17,15 @@ export default function ProjectView() {
                 <section id="home" className="section">
                   <Hero />
                 </section>
-                <section id="about" className="section">
+                <section id="about" className="section ml-2">
                   <About/>
                 </section>
-                <section id="projects" className="section">
+                <section id="projects" className="section ml-2">
                   <h2 className="text-3xl font-bold mb-6">Projects</h2>
                   <Projects />
                 </section>
-                <section id="contact" className="section">
-                  <div className="card">
-                    <h2 className="text-2xl font-bold">Contact</h2>
-                    <p className="mt-3 text-gray-600 dark:text-gray-300">
-                      Call to action or contact form placeholder.
-                    </p>
-                  </div>
+                <section id="contact" className="section ml-2 mt-4">
+                  <Contact/>
                 </section>
               </>
             }

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 
 export default function ProjectCard({ title, description, tags, image, slug }) {
   return (
+    
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
