@@ -11,7 +11,7 @@ export default function App() {
       <Navbar />
       <ProjectView/>
       <footer className="py-10 text-center text-sm text-gray-500 dark:text-gray-400">
-        © {new Date().getFullYear()} Your Name
+        © {new Date().getFullYear()} <span>amazingawwal</span>
       </footer>
     </div>
   )
