@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { Mail, Github, Linkedin } from "lucide-react"
 import { useState } from "react"
 
@@ -13,7 +13,7 @@ export default function Contact() {
     const form = e.currentTarget
     const formData = new FormData(form)
 
-    // 🚨 HP check
+    
     if (formData.get("bot-field")) {
       setStatus("success") 
       form.reset()

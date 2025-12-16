@@ -28,6 +28,6 @@ const timeline = [
 
 
 export {
-    skills,
-    timeline
+  skills,
+  timeline
 }

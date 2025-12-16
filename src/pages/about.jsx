@@ -6,7 +6,7 @@ import { skills, timeline } from "../data/skills"
 export default function About() {
   return (
     <div className="grid gap-12 md:grid-cols-2">
-      {/* Skills */}
+      
       <motion.div   
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Timeline */}
+     
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
