@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom"
-import { ArrowLeft, Github, ExternalLink, Code, Server, Layers } from "lucide-react"
+import { ArrowLeft, Github, ExternalLink, Code, Server, Layers, Brain } from "lucide-react"
 import { projects } from "../../Data/projects"
 
 export default function ProjectDetail() {
@@ -35,6 +35,12 @@ export default function ProjectDetail() {
       bg: "bg-purple-100 dark:bg-purple-900/30",
       text: "text-purple-700 dark:text-purple-300",
       label: "Full-Stack Development"
+    },
+    ai: {
+      icon: Brain,
+      bg: "bg-orange-100 dark:bg-orange-900/30",
+      text: "text-orange-700 dark:text-orange-300",
+      label: "AI/ML Project"
     }
   }
 
@@ -43,7 +49,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="max-w-4xl mx-auto py-10 px-6">
-      {/* Back Button */}
+    
       <Link
         to="/#projects"
         className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 mb-6 transition"
@@ -51,16 +57,16 @@ export default function ProjectDetail() {
         <ArrowLeft className="h-4 w-4" /> Back to Projects
       </Link>
 
-      {/* Project Image */}
+      
       <img
         src={project.image}
         alt={project.title}
-        className="w-full rounded-2xl shadow-lg mb-8 object-cover max-h-96"
+        className="w-full rounded-2xl shadow-lg mb-8 object-cover max-h-110"
       />
 
-      {/* Header Section */}
+      
       <div className="mb-8">
-        {/* Category Badge */}
+        
         <div className="mb-4">
           <span className={`${categoryInfo.bg} ${categoryInfo.text} px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-2`}>
             <CategoryIcon className="h-4 w-4" />
@@ -68,7 +74,7 @@ export default function ProjectDetail() {
           </span>
         </div>
 
-        {/* Title and Description */}
+        
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
           {project.title}
         </h1>
@@ -76,7 +82,7 @@ export default function ProjectDetail() {
           {project.description}
         </p>
 
-        {/* Tags */}
+        
         <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((tag, i) => (
             <span
@@ -88,7 +94,7 @@ export default function ProjectDetail() {
           ))}
         </div>
 
-        {/* Action Buttons */}
+       
         <div className="mt-6 flex flex-wrap gap-4">
           {project.githubUrl && (
             <a
@@ -115,11 +121,11 @@ export default function ProjectDetail() {
         </div>
       </div>
 
-      {/* Project Details Content */}
+      
       <div className="prose prose-lg dark:prose-invert max-w-none">
         <div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-800">
           {project.content.split('\n\n').map((paragraph, index) => {
-            // Check if paragraph is a header (starts with **)
+            
             if (paragraph.trim().startsWith('**') && paragraph.trim().endsWith('**')) {
               const headerText = paragraph.replace(/\*\*/g, '').trim()
               return (
@@ -129,7 +135,7 @@ export default function ProjectDetail() {
               )
             }
             
-            // Check if it's a list item
+            
             if (paragraph.trim().startsWith('- ')) {
               const items = paragraph.split('\n').filter(line => line.trim().startsWith('- '))
               return (
@@ -143,7 +149,7 @@ export default function ProjectDetail() {
               )
             }
             
-            // Regular paragraph
+            
             return (
               <p key={index} className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
                 {paragraph.replace(/\*\*/g, '').trim()}
@@ -153,7 +159,7 @@ export default function ProjectDetail() {
         </div>
       </div>
 
-      {/* Footer Navigation */}
+      
       <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
         <Link
           to="/#projects"

@@ -1,32 +1,7 @@
-
+import { Brain } from "lucide-react"
 
 export const projects = [
-  
-  {
-    slug: "portfolio-website",
-    title: "Portfolio Website",
-    description: "A modern portfolio built with React, TailwindCSS, and Framer Motion.",
-    tags: ["React", "Tailwind", "Framer Motion"],
-    category: "frontend",
-    image: "/rusham-fe.png",
-    githubUrl: "https://github.com/yourusername/portfolio",
-    liveUrl: "https://yourportfolio.com",
-    content: `
-This portfolio website showcases my work as a frontend developer.  
-It is built with **React + TypeScript**, styled using **TailwindCSS**, and animated with **Framer Motion**.
 
-**Key Features:**
-- Responsive design that works on all devices
-- Dark mode toggle for better user experience
-- Smooth animations and transitions
-- Contact form with spam protection
-- Project filtering by category
-
-**Challenges & Solutions:**
-One of the main challenges was implementing smooth scroll animations while maintaining good performance. I solved this by using Framer Motion's viewport detection and lazy loading components.
-    `,
-  },
-  
   {
     slug: "rideable-fe",
     title: "rideAble - Accessible ride request",
@@ -53,7 +28,7 @@ Implemented data caching to reduce API calls and improve performance.
     `,
   },
 
-  // Backend Projects
+  
   {
     slug: "rideable-rest-api-nodejs",
     title: "rideAble RESTful API with Node.js",
@@ -130,88 +105,58 @@ A robust distress sales market place backend API handling products, orders, paym
 - Background job processing for emails
     `,
   },
+    
   {
-    slug: "chat-backend",
-    title: "Real-Time Chat Server",
-    description: "WebSocket-based chat server with room management and message persistence.",
-    tags: ["Node.js", "Socket.io", "MongoDB", "WebSockets"],
-    category: "backend",
-    image: "https://via.placeholder.com/600x400?text=Chat+Server",
-    githubUrl: "https://github.com/yourusername/chat-server",
+    slug: "prompt-chaining-ai",
+    title: "Prompt Chaining with OpenRouter",
+    description: "Multi-step AI pipeline for intelligent customer support query processing.",
+    tags: ["Python", "OpenRouter API", "LLM", "Prompt Engineering"],
+    category: "ai",
+    image: '/prompt-chain.png',
+    githubUrl: "https://github.com/amazingawwal/Prompt-Chaining",
     content: `
-A scalable real-time chat server supporting multiple rooms, private messaging, and message history.
+A sophisticated prompt-chaining pipeline that demonstrates advanced AI prompt engineering techniques using the OpenRouter API to process customer support queries through multiple intelligent stages.
 
-**Features:**
-- Real-time messaging with Socket.io
-- Multiple chat rooms
-- Private direct messages
-- Typing indicators
-- Read receipts
-- Message history persistence
-- User online/offline status
-- File upload support
+**What is Prompt Chaining?**
+Prompt chaining is a technique where complex AI tasks are broken down into smaller, sequential steps. Each step's output becomes the input for the next step, creating a logical pipeline that produces more accurate and controllable results than a single monolithic prompt.
 
-**Tech Stack:**
-- Node.js & Express
-- Socket.io for WebSocket connections
-- MongoDB for message storage
-- Redis for presence tracking
+**The Five-Step Pipeline:**
 
-**Real-Time Features:**
-- Bi-directional event-based communication
-- Room broadcasting
-- Namespace isolation
-- Connection state management
+**Step 1: Intent Interpretation**
+The AI analyzes the customer's message to understand their core need or problem in simple terms.
 
-**Scalability Considerations:**
-- Redis adapter for multi-server deployments
-- Message queue for handling spikes
-- Database indexing for fast queries
-- Horizontal scaling capability
+**Step 2: Category Mapping**
+Based on the interpreted intent, the system suggests up to three relevant issue categories with reasoning for each suggestion.
 
-**Challenges Solved:**
-Handling connection drops gracefully, implementing message delivery guarantees, and optimizing database queries for chat history.
-    `,
-  },
+**Step 3: Category Selection**
+The AI evaluates the suggested categories and chooses the most appropriate one for routing the query.
 
-  // Full-Stack Projects
-  {
-    slug: "task-management-app",
-    title: "Task Management Application",
-    description: "Full-stack project management tool with team collaboration features.",
-    tags: ["React", "Node.js", "PostgreSQL", "WebSockets"],
-    category: "fullstack",
-    image: "https://via.placeholder.com/600x400?text=Task+Manager",
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://yourtasks.com",
-    content: `
-A comprehensive task management application similar to Trello, with real-time collaboration features.
+**Step 4: Detail Extraction**
+Structured information is extracted from the query, such as dates, card numbers, account details, or other relevant data points needed to resolve the issue.
 
-**Frontend:**
-- React with TypeScript
-- Redux Toolkit for state management
-- Drag-and-drop functionality
-- Real-time updates via WebSockets
-- Responsive design with Tailwind CSS
+**Step 5: Response Generation**
+A polite, customer-facing reply is generated that addresses the specific issue with the appropriate level of empathy and information.
 
-**Backend:**
-- Node.js/Express REST API
-- Socket.io for real-time features
-- PostgreSQL database
-- JWT authentication
-- File upload handling
+**Technical Implementation:**
+- Python 3.10+ for core logic
+- OpenRouter API for flexible LLM access
+- Environment-based configuration with python-dotenv
+- Modular function design for each chain step
+- JSON parsing for structured data extraction
 
 **Key Features:**
-- Project boards with customizable columns
-- Task cards with descriptions, due dates, and attachments
-- Team member assignment
-- Real-time collaboration
-- Activity history and comments
-- Email notifications
-- Search and filtering
+- Sequential reasoning for complex queries
+- Flexible model selection (supports GPT-4, Claude, and other models via OpenRouter)
+- Structured data extraction from natural language
+- Easy to debug and modify individual steps
+- Cost-effective API usage through OpenRouter
 
-**Technical Highlights:**
-Implemented optimistic UI updates, conflict resolution for concurrent edits, and efficient data synchronization between frontend and backend.
+**Use Cases:**
+- Customer support automation
+- Content moderation pipelines
+- Document processing workflows
+- Multi-step decision systems
+- Data extraction and transformation
     `,
   },
 ]

@@ -2,27 +2,32 @@ const skills = [
   "React",
   "TypeScript",
   "TailwindCSS",
+  "SQL/NoSQL",
+  "BootstrapCSS",
   "Framer Motion",
   "Node.js",
-  "GraphQL",
+  "Python",
+  "REST API",
   "Git/GitHub",
+  "Google Cloud Platform"
 ]
 
 const timeline = [
   {
-    year: "2025",
-    title: "Frontend Developer @ TechCorp",
+    year: "2024",
+    title: "Full-Stack Developer",
     description: "Building modern web applications with React & TypeScript.",
   },
   {
     year: "2023",
-    title: "Freelance Developer",
-    description: "Worked with clients to deliver full-stack apps and landing pages.",
+    title: "Web & Automation Developer",
+    description: "Worked with clients to deliver full-stack apps and digital marketing CRM suite.",
   },
   {
-    year: "2021",
-    title: "BSc in Computer Science",
-    description: "Graduated with focus on software engineering and UI/UX design.",
+    year: "2022",
+    title: "MSc in Logistics and Supply Chain Management",
+    description: `Graduated with focus on business data analytics, operations and project management, and digital
+transformation in supply networks.`
   },
 ]
 

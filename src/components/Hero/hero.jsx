@@ -11,7 +11,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="text-4xl font-extrabold tracking-tight md:text-5xl"
         >
-          Hi, I’m <span className="text-sky-600">Sakeeb Awwal</span> 👋
+          Hi, I’m <span className="text-sky-600">Sakeeb</span> 👋
         </motion.h1>
 
         <motion.p
@@ -20,7 +20,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-4 max-w-prose text-lg text-gray-600 dark:text-gray-300"
         >
-          I build delightful web experiences with React, TypeScript, and modern
+          I build delightful web and AI experiences with Python, React, TypeScript, and modern
           tooling.
         </motion.p>
 
