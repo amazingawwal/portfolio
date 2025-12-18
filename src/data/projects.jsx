@@ -1,7 +1,7 @@
 
 
 export const projects = [
-  // Frontend Projects
+  
   {
     slug: "portfolio-website",
     title: "Portfolio Website",
@@ -26,64 +26,30 @@ It is built with **React + TypeScript**, styled using **TailwindCSS**, and anima
 One of the main challenges was implementing smooth scroll animations while maintaining good performance. I solved this by using Framer Motion's viewport detection and lazy loading components.
     `,
   },
+  
   {
-    slug: "ecommerce-frontend",
-    title: "E-Commerce Frontend",
-    description: "Modern shopping experience with cart management and product filtering.",
-    tags: ["React", "Redux", "Tailwind", "API Integration"],
+    slug: "rideable-fe",
+    title: "rideAble - Accessible ride request",
+    description: "Accessible rides request platform to meet up with your clinical and hospital appointments.",
+    tags: ["React", "Google Maps", "Typescript", "Tailwind CSS", "ORS Geolocation"],
     category: "frontend",
-    image: "https://via.placeholder.com/600x400?text=E-Commerce+Frontend",
-    githubUrl: "https://github.com/yourusername/ecommerce-frontend",
-    liveUrl: "https://yourecommerce.com",
+    image: "/rideable-fe.png",
+    githubUrl: "https://github.com/amazingawwal/rideAble-FE",
+    liveUrl: "https://ride-able-fe.vercel.app/",
     content: `
-A fully responsive e-commerce frontend application with advanced features.
-
-**Key Features:**
-- Product browsing with filtering and sorting
-- Shopping cart with persistent storage
-- User authentication UI
-- Wishlist functionality
-- Responsive product gallery with zoom
-- Search with autocomplete
-
-**Tech Stack:**
-- React for UI components
-- Redux for state management
-- React Router for navigation
-- Axios for API calls
-- Tailwind CSS for styling
-
-**What I Learned:**
-Managing complex state across multiple components and implementing performance optimizations for large product catalogs.
-    `,
-  },
-  {
-    slug: "weather-dashboard",
-    title: "Weather Dashboard",
-    description: "Real-time weather data visualization with interactive maps.",
-    tags: ["React", "Chart.js", "Weather API", "Geolocation"],
-    category: "frontend",
-    image: "https://via.placeholder.com/600x400?text=Weather+Dashboard",
-    githubUrl: "https://github.com/yourusername/weather-dashboard",
-    liveUrl: "https://yourweather.com",
-    content: `
-An interactive weather dashboard that displays real-time weather information with beautiful visualizations.
+an accessibility-focused web app that helps users manage mobility and accessibility-related services.
 
 **Features:**
-- Current weather conditions
-- 7-day forecast
-- Interactive weather maps
-- Location-based weather detection
-- Historical weather data charts
-- Weather alerts and notifications
+- User authentication with JWT tokens
+- Role-based access control (RBAC)
+- Input validation 
 
 **APIs Used:**
-- OpenWeatherMap API for weather data
-- Mapbox for interactive maps
-- Geolocation API for user location
+- Google Maps API 
+- ORS Geolocation API for user location
 
 **Highlights:**
-Implemented data caching to reduce API calls and improve performance, plus created reusable chart components for weather visualizations.
+Implemented data caching to reduce API calls and improve performance.
     `,
   },
 
@@ -94,7 +60,7 @@ Implemented data caching to reduce API calls and improve performance, plus creat
     description: "Scalable REST API with authentication, validation, and database integration.",
     tags: ["Node.js", "Nest.js", "Prisma", "JWT"],
     category: "backend",
-    image: "rideable-be.png",
+    image: "/rideable-be.png",
     githubUrl: "https://github.com/amazingawwal/rideAble-be",
     content: `
 A production-ready RESTful API built with Node.js and Express, featuring comprehensive authentication and data management.
