@@ -1,12 +1,29 @@
-# React + Vite
+# Portfolio Website
+A modern, responsive portfolio website built with React, showcasing my projects and skills as a full-stack developer. Features dark mode, smooth animations, and a validated contact form.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features
+- Modern UI/UX - Clean, professional design with smooth animations
+- Fully Responsive - Works seamlessly on desktop, tablet, and mobile devices
+- Project Filtering - Filter projects by category (Frontend, Backend, Full-Stack, AI/ML)
+- Contact Form - Validated contact form with real-time error checking
+- Fast Performance - Built with Vite for lightning-fast load times
+- Accessible - WCAG compliant with keyboard navigation and screen reader support
+- SEO Optimized - Proper meta tags and semantic HTML
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Built With
+- Frontend Framework: React 19
+- Build Tool: Vite 7
+- Styling: Tailwind CSS 4 and Framer Motion
+- Animations: Framer Motion
+- Routing: React Router 7
+- Icons: Lucide React
+- Form Handling: FormSpree
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Author
+Sakeeb A Ayigoro
+
+- GitHub: [@amazingawwal](https://github.com/amazingawwal)
+- LinkedIn: [Sakeeb Ayigoro](https://www.linkedin.com/in/sakeeb-ayigoro)
+- Email: sakeebmawwal@gmail.com
