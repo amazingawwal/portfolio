@@ -35,7 +35,7 @@ useEffect(() => {
     <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md dark:bg-gray-900/70">
       <nav className="container mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="/" className="text-xl font-bold text-sky-600">
-          MyPortfolio
+          aA
         </a>
 
       
@@ -52,14 +52,6 @@ useEffect(() => {
           ))}
         </ul>
 
-       
-        <button
-          onClick={() => setDark(!dark)}
-          className="hidden md:block ml-4 rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
-          aria-label="Toggle dark mode"
-        >
-          {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-        </button>
 
       
         <div className="flex items-center gap-2 md:hidden">
