@@ -1,9 +1,6 @@
-import { Routes, Route } from "react-router-dom"
-import Navbar from "./Components/Navbar/navbar"
+import Navbar from "./components/Navbar/navbar"
 import ProjectView from "./pages/projectView"
-// import Hero from "./components/Hero/hero"
-// import Projects from "./components/Projects/projects"
-// import ProjectDetail from "./components/Projects/projectDetails"
+
 
 export default function App() {
   return (
