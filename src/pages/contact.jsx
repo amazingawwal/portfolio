@@ -181,7 +181,7 @@ export default function Contact() {
           <Mail className="h-5 w-5" /> Email
         </a>
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/amazingawwal"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 transition-colors"
@@ -189,7 +189,7 @@ export default function Contact() {
           <Github className="h-5 w-5" /> GitHub
         </a>
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://linkedin.com/in/sakeeb-ayigoro"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 transition-colors"

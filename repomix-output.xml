@@ -13,7 +13,7 @@ or other automated processes.
 The content is organized as follows:
 1. This summary section
 2. Repository information
-3. Directory structure
+3. Directory structureb n
 4. Repository files (if enabled)
 5. Multiple file entries, each consisting of:
   - File path as an attribute
@@ -26,7 +26,7 @@ The content is organized as follows:
 - When processing this file, use the file path to distinguish
   between different files in the repository.
 - Be aware that this file may contain sensitive information. Handle it with
-  the same level of security as you would the original repository.
+  thoiike same level of security as you would the original repository.
 </usage_guidelines>
 
 <notes>
@@ -46,6 +46,10 @@ The content is organized as follows:
 eslint.config.js
 index.html
 package.json
+public/prompt-chain.png
+public/rideable-be.png
+public/rideable-fe.png
+public/rusham-fe.png
 README.md
 src/App.css
 src/App.jsx
@@ -109,429 +113,8 @@ export default defineConfig([
 ])
 </file>
 
-<file path="src/data/projects.jsx">
-export const projects = [
-  {
-    slug: "portfolio-website",
-    title: "Portfolio Website",
-    description: "A modern portfolio built with React, TailwindCSS, and Framer Motion.",
-    tags: ["React", "Tailwind", "Framer Motion"],
-    image: "https://via.placeholder.com/600x400?text=Portfolio",
-    content: `
-This portfolio website showcases my work as a frontend developer.  
-It is built with **React + TypeScript**, styled using **TailwindCSS**, and animated with **Framer Motion**.
-    `,
-  },
-  {
-    slug: "ecommerce-app",
-    title: "E-Commerce App",
-    description: "A full-stack e-commerce application with shopping cart and checkout.",
-    tags: ["React", "Node.js", "Stripe"],
-    image: "https://via.placeholder.com/600x400?text=E-Commerce",
-    content: `
-This is a full-stack e-commerce application with secure payments via Stripe.  
-It supports product browsing, shopping cart, and a checkout flow.
-    `,
-  },
-  {
-    slug: "chat-app",
-    title: "Chat App",
-    description: "Realtime chat application with WebSocket support.",
-    tags: ["React", "Socket.io", "TypeScript"],
-    image: "https://via.placeholder.com/600x400?text=Chat+App",
-    content: `
-A real-time chat application built using **Socket.IO**.  
-It supports multiple rooms, typing indicators, and message history.
-    `,
-  },
-]
-</file>
-
-<file path="src/data/skills.jsx">
-const skills = [
-  "React",
-  "TypeScript",
-  "TailwindCSS",
-  "Framer Motion",
-  "Node.js",
-  "GraphQL",
-  "Git/GitHub",
-]
-
-const timeline = [
-  {
-    year: "2025",
-    title: "Frontend Developer @ TechCorp",
-    description: "Building modern web applications with React & TypeScript.",
-  },
-  {
-    year: "2023",
-    title: "Freelance Developer",
-    description: "Worked with clients to deliver full-stack apps and landing pages.",
-  },
-  {
-    year: "2021",
-    title: "BSc in Computer Science",
-    description: "Graduated with focus on software engineering and UI/UX design.",
-  },
-]
-
-
-export {
-    skills,
-    timeline
-}
-</file>
-
-<file path="src/pages/contact.jsx">
-import { motion } from "framer-motion"
-import { Mail, Github, Linkedin } from "lucide-react"
-import { useState } from "react"
-
-
-export default function Contact() {
-  const [status, setStatus] = useState("idle")
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-    setStatus("submitting")
-
-    const form = e.currentTarget
-    const formData = new FormData(form)
-
-    // 🚨 HP check
-    if (formData.get("bot-field")) {
-      setStatus("success") 
-      form.reset()
-      return
-    }
-
-    try {
-      const res = await fetch(import.meta.env.VITE_FORM_SPREE, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      })
-
-      if (res.ok) {
-        setStatus("success")
-        form.reset()
-      } else {
-        setStatus("error")
-      }
-    } catch (err) {
-      setStatus("error")
-    }
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="max-w-3xl "
-    >
-      <h2 className="text-3xl font-bold mb-6">Contact</h2>
-
-      <p className="mb-4 text-gray-600 dark:text-gray-300">
-        I’d love to hear from you! Whether it’s a project, a question, or just to
-        say hi 👋 — drop me a message.
-      </p>
-
-      <div className="flex gap-4 mb-10">
-        <a
-          href="mailto:sakeebmawwal@gmail.com"
-          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400"
-        >
-          <Mail className="h-5 w-5" /> Email
-        </a>
-        <a
-          href="https://github.com/yourusername"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400"
-        >
-          <Github className="h-5 w-5" /> GitHub
-        </a>
-        <a
-          href="https://linkedin.com/in/yourusername"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400"
-        >
-          <Linkedin className="h-5 w-5" /> LinkedIn
-        </a>
-      </div>
-
-      {/* Contact form */}
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4 bg-white dark:bg-gray-900 shadow-md rounded-xl p-6"
-      >
-        {/* hp field */}
-        <input
-          type="text"
-          name="bot-field"
-          className="hidden"
-          tabIndex={-1}
-          autoComplete="off"
-        />
-
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-1">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2 focus:border-sky-500 focus:ring focus:ring-sky-200 dark:focus:ring-sky-800"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2 focus:border-sky-500 focus:ring focus:ring-sky-200 dark:focus:ring-sky-800"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-1">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            required
-            className="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2 focus:border-sky-500 focus:ring focus:ring-sky-200 dark:focus:ring-sky-800"
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={status === "submitting"}
-          className="rounded-lg bg-sky-600 px-4 py-2 font-medium text-white hover:bg-sky-700 transition disabled:opacity-50"
-        >
-          {status === "submitting" ? "Sending..." : "Send Message"}
-        </button>
-
-        {status === "success" && (
-          <p className="text-green-600 mt-2">✅ Message sent successfully!</p>
-        )}
-        {status === "error" && (
-          <p className="text-red-600 mt-2">❌ Something went wrong. Try again.</p>
-        )}
-      </form>
-    </motion.div>
-  )
-}
-</file>
-
 <file path="src/App.css">
 
-</file>
-
-<file path="src/components/Hero/hero.jsx">
-import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
-
-export default function Hero() {
-  return (
-    <div className="grid items-center gap-10 md:grid-cols-2 p-6">
-      <div>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold tracking-tight md:text-5xl"
-        >
-          Hi, I’m <span className="text-sky-600">Sakeeb Awwal</span> 👋
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-4 max-w-prose text-lg text-gray-600 dark:text-gray-300"
-        >
-          I build delightful web experiences with React, TypeScript, and modern
-          tooling.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-8 flex flex-wrap items-center gap-3"
-        >
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 rounded-2xl bg-sky-600 px-5 py-2 font-medium text-white shadow hover:bg-sky-700 transition"
-          >
-            View Projects <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-2xl border border-gray-300 px-5 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 transition"
-          >
-            Contact Me
-          </a>
-        </motion.div>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="relative mx-auto aspect-square w-56 overflow-hidden rounded-[2rem] md:w-72"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-500 via-fuchsia-500 to-amber-400 opacity-80" />
-        <div className="absolute inset-0 m-3 rounded-[1.5rem] bg-white/80 backdrop-blur-sm dark:bg-gray-900/70" />
-        <div className="absolute inset-0 flex items-center justify-center text-5xl">
-          🧑‍💻
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-</file>
-
-<file path="src/components/Projects/projectDetails.jsx">
-import { useParams, Link } from "react-router-dom"
-import { ArrowLeft } from "lucide-react"
-import { projects } from "../../Data/projects"
-
-export default function ProjectDetail() {
-  const { slug } = useParams()
-  const project = projects.find((p) => p.slug === slug)
-
-  if (!project) {
-    return (
-      <div className="max-w-3xl mx-auto py-10">
-        <p className="text-red-500">Project not found.</p>
-        <Link to="/#projects" className="text-sky-600 hover:underline">
-          ← Back to Projects
-        </Link>
-      </div>
-    )
-  }
-
-  return (
-    <div className="max-w-3xl mx-auto py-10">
-      <Link
-        to="/#projects"
-        className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 mb-6"
-      >
-        <ArrowLeft className="h-4 w-4" /> Back to Projects
-      </Link>
-
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full rounded-xl shadow mb-6"
-      />
-
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{project.title}</h1>
-      <p className="mt-2 text-gray-600 dark:text-gray-300">{project.description}</p>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {project.tags.map((tag, i) => (
-          <span
-            key={i}
-            className="rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-600 dark:bg-sky-900/50 dark:text-sky-300"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-6 prose dark:prose-invert">
-        <p>{project.content}</p>
-      </div>
-    </div>
-  )
-}
-</file>
-
-<file path="src/components/Projects/projects.jsx">
-import ProjectCard from "./projectCard"
-import { projects } from "../../Data/projects"
-
-export default function Projects() {
-  return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project) => (
-        <ProjectCard key={project.slug} {...project} />
-      ))}
-    </div>
-  )
-}
-</file>
-
-<file path="src/pages/about.jsx">
-import { motion } from "motion/react"
-import { skills, timeline } from "../data/skills"
-
-
-
-export default function About() {
-  return (
-    <div className="grid gap-12 md:grid-cols-2">
-      {/* Skills */}
-      <motion.div   
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl font-bold mb-6 ">Skills</h2>
-        <div className="flex flex-wrap gap-3">
-          {skills.map((skill, i) => (
-            <span
-              key={i}
-              className="rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 dark:bg-sky-900/50 dark:text-sky-300 shadow-sm"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Timeline */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-      >
-        <h2 className="text-3xl font-bold mb-6">Experience</h2>
-        <ol className="relative border-l ml-1 border-gray-300 dark:border-gray-700">
-          {timeline.map((item, i) => (
-            <li key={i} className="mb-10 ml-6">
-              <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-sky-600 text-white text-xs font-bold">
-                {item.year.slice(2)}
-              </span>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {item.title}
-              </h3>
-              <time className="block text-sm text-gray-500">{item.year}</time>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">
-                {item.description}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </motion.div>
-    </div>
-  )
-}
 </file>
 
 <file path="src/pages/projectView.jsx">
@@ -575,33 +158,6 @@ export default function ProjectView() {
 }
 </file>
 
-<file path=".gitignore">
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-</file>
-
 <file path="index.html">
 <!doctype html>
 <html lang="en">
@@ -618,69 +174,68 @@ dist-ssr
 </html>
 </file>
 
-<file path="src/components/Navbar/navbar.jsx">
-import { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
+<file path="src/components/Hero/hero.jsx">
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
 
+export default function Hero() {
+  return (
+    <div className="grid items-center gap-10 md:grid-cols-2 p-6">
+      <div>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-extrabold tracking-tight md:text-5xl"
+        >
+          Hi, I’m <span className="text-sky-600">Sakeeb</span> 👋
+        </motion.h1>
 
-export default function Navbar() {
-const [dark, setDark] = useState(false);
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-4 max-w-prose text-lg text-gray-600 dark:text-gray-300"
+        >
+          I build delightful web and AI experiences with Python, React, TypeScript, and modern
+          tooling.
+        </motion.p>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-8 flex flex-wrap items-center gap-3"
+        >
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2 rounded-2xl bg-sky-600 px-5 py-2 font-medium text-white shadow hover:bg-sky-700 transition"
+          >
+            View Projects <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-2xl border border-gray-300 px-5 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 transition"
+          >
+            Contact Me
+          </a>
+        </motion.div>
+      </div>
 
-useEffect(() => {
-if (dark) {
-document.documentElement.classList.add("dark");
-} else {
-document.documentElement.classList.remove("dark");
-}
-}, [dark]);
-
-
-return (
-<header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md dark:bg-gray-900/70">
-<nav className="container mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-<a href="/" className="text-xl font-bold text-sky-600">
-MyPortfolio
-</a>
-
-
-<ul className="hidden gap-6 md:flex">
-<li>
-<a
-href="#about"
-className="text-gray-700 hover:text-sky-600 dark:text-gray-200 dark:hover:text-sky-400"
->
-About
-</a>
-</li>
-<li>
-<a
-href="#projects"
-className="text-gray-700 hover:text-sky-600 dark:text-gray-200 dark:hover:text-sky-400"
->
-Projects
-</a>
-</li>
-<li>
-<a
-href="#contact"
-className="text-gray-700 hover:text-sky-600 dark:text-gray-200 dark:hover:text-sky-400"
->
-Contact
-</a>
-</li>
-</ul>
-
-
-<button
-onClick={() => setDark(!dark)}
-className="ml-4 rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
->
-{dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-</button>
-</nav>
-</header>
-);
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="relative mx-auto aspect-square w-56 overflow-hidden rounded-[2rem] md:w-72"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-500 via-fuchsia-500 to-amber-400 opacity-80" />
+        <div className="absolute inset-0 m-3 rounded-[1.5rem] bg-white/80 backdrop-blur-sm dark:bg-gray-900/70" />
+        <div className="absolute inset-0 flex items-center justify-center text-5xl">
+          🧑‍💻
+        </div>
+      </motion.div>
+    </div>
+  );
 }
 </file>
 
@@ -742,6 +297,466 @@ export default function ProjectCard({ title, description, tags, image, slug }) {
 }
 </file>
 
+<file path="src/components/Projects/projects.jsx">
+import ProjectCard from "./projectCard"
+import { projects } from "../../data/projects"
+
+export default function Projects() {
+  return (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => (
+        <ProjectCard key={project.slug} {...project} />
+      ))}
+    </div>
+  )
+}
+</file>
+
+<file path="src/data/skills.jsx">
+const skills = [
+  "React",
+  "TypeScript",
+  "TailwindCSS",
+  "SQL/NoSQL",
+  "BootstrapCSS",
+  "Framer Motion",
+  "Node.js",
+  "Python",
+  "REST API",
+  "Git/GitHub",
+  "Google Cloud Platform"
+]
+
+const timeline = [
+  {
+    year: "2024",
+    title: "Full-Stack Developer",
+    description: "Building modern web applications with React & TypeScript.",
+  },
+  {
+    year: "2023",
+    title: "Web & Automation Developer",
+    description: "Worked with clients to deliver full-stack apps and digital marketing CRM suite.",
+  },
+  {
+    year: "2022",
+    title: "MSc in Logistics and Supply Chain Management",
+    description: `Graduated with focus on business data analytics, operations and project management, and digital
+transformation in supply networks.`
+  },
+]
+
+
+export {
+  skills,
+  timeline
+}
+</file>
+
+<file path="src/pages/about.jsx">
+import { motion } from "motion/react"
+import { skills, timeline } from "../data/skills"
+
+
+
+export default function About() {
+  return (
+    <div className="grid gap-12 md:grid-cols-2">
+      
+      <motion.div   
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-3xl font-bold mb-6 ">Skills</h2>
+        <div className="flex flex-wrap gap-3">
+          {skills.map((skill, i) => (
+            <span
+              key={i}
+              className="rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 dark:bg-sky-900/50 dark:text-sky-300 shadow-sm"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+
+     
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
+        <h2 className="text-3xl font-bold mb-6">Experience</h2>
+        <ol className="relative border-l ml-1 border-gray-300 dark:border-gray-700">
+          {timeline.map((item, i) => (
+            <li key={i} className="mb-10 ml-6">
+              <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-sky-600 text-white text-xs font-bold">
+                {item.year.slice(2)}
+              </span>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                {item.title}
+              </h3>
+              <time className="block text-sm text-gray-500">{item.year}</time>
+              <p className="mt-2 text-gray-600 dark:text-gray-300">
+                {item.description}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </motion.div>
+    </div>
+  )
+}
+</file>
+
+<file path="src/pages/contact.jsx">
+import { motion } from "motion/react"
+import { Mail, Github, Linkedin, AlertCircle, CheckCircle } from "lucide-react"
+import { useState } from "react"
+
+export default function Contact() {
+  const [status, setStatus] = useState("idle") 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  })
+  const [errors, setErrors] = useState({})
+  const [touched, setTouched] = useState({})
+
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case "name":
+        if (!value.trim()) {
+          return "Name is required"
+        }
+        if (value.trim().length < 2) {
+          return "Name must be at least 2 characters"
+        }
+        if (value.trim().length > 50) {
+          return "Name must be less than 50 characters"
+        }
+        if (!/^[a-zA-Z\s'-]+$/.test(value)) {
+          return "Name can only contain letters, spaces, hyphens, and apostrophes"
+        }
+        return ""
+
+      case "email":
+        if (!value.trim()) {
+          return "Email is required"
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(value)) {
+          return "Please enter a valid email address"
+        }
+        if (value.length > 100) {
+          return "Email must be less than 100 characters"
+        }
+        return ""
+
+      case "message":
+        if (!value.trim()) {
+          return "Message is required"
+        }
+        if (value.trim().length < 10) {
+          return "Message must be at least 10 characters"
+        }
+        if (value.trim().length > 1000) {
+          return "Message must be less than 1000 characters"
+        }
+        return ""
+
+      default:
+        return ""
+    }
+  }
+
+  
+  const validateForm = () => {
+    const newErrors = {}
+    Object.keys(formData).forEach(key => {
+      const error = validateField(key, formData[key])
+      if (error) {
+        newErrors[key] = error
+      }
+    })
+    return newErrors
+  }
+
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    
+    
+    if (touched[name]) {
+      const error = validateField(name, value)
+      setErrors(prev => ({ ...prev, [name]: error }))
+    }
+  }
+
+  
+  const handleBlur = (e) => {
+    const { name, value } = e.target
+    setTouched(prev => ({ ...prev, [name]: true }))
+    
+    
+    const error = validateField(name, value)
+    setErrors(prev => ({ ...prev, [name]: error }))
+  }
+
+  
+  async function handleSubmit(e) {
+    e.preventDefault()
+    
+    
+    setTouched({
+      name: true,
+      email: true,
+      message: true
+    })
+
+    
+    const newErrors = validateForm()
+    setErrors(newErrors)
+
+    
+    if (Object.keys(newErrors).length > 0) {
+      return 
+    }
+
+    setStatus("submitting")
+
+    const form = e.currentTarget
+    const formDataToSend = new FormData(form)
+
+    
+    if (formDataToSend.get("bot-field")) {
+      setStatus("success")
+      form.reset()
+      setFormData({ name: "", email: "", message: "" })
+      setErrors({})
+      setTouched({})
+      return
+    }
+
+    try {
+      const res = await fetch(import.meta.env.VITE_FORM_SPREE, {
+        method: "POST",
+        body: formDataToSend,
+        headers: { Accept: "application/json" },
+      })
+
+      if (res.ok) {
+        setStatus("success")
+        form.reset()
+        setFormData({ name: "", email: "", message: "" })
+        setErrors({})
+        setTouched({})
+        
+        
+        setTimeout(() => {
+          setStatus("idle")
+        }, 5000)
+      } else {
+        setStatus("error")
+      }
+    } catch (err) {
+      setStatus("error")
+    }
+  }
+
+ 
+  const showError = (field) => touched[field] && errors[field]
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="max-w-3xl"
+    >
+      <h2 className="text-3xl font-bold mb-6">Contact</h2>
+
+      <p className="mb-4 text-gray-600 dark:text-gray-300">
+        I'd love to hear from you! Whether it's a project, a question, or just to
+        say hi 👋 — drop me a message.
+      </p>
+
+      
+      <div className="flex gap-4 mb-10">
+        <a
+          href="mailto:sakeebmawwal@gmail.com"
+          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 transition-colors"
+        >
+          <Mail className="h-5 w-5" /> Email
+        </a>
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 transition-colors"
+        >
+          <Github className="h-5 w-5" /> GitHub
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 transition-colors"
+        >
+          <Linkedin className="h-5 w-5" /> LinkedIn
+        </a>
+      </div>
+
+      
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="space-y-5 bg-white dark:bg-gray-900 shadow-md rounded-xl p-6"
+      >
+        
+        <input
+          type="text"
+          name="bot-field"
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+
+       
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium mb-1">
+            Name <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`w-full rounded-lg border px-3 py-2 transition-colors focus:outline-none focus:ring-2 ${
+              showError("name")
+                ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
+                : "border-gray-300 dark:border-gray-700 bg-transparent focus:border-sky-500 focus:ring-sky-200 dark:focus:ring-sky-800"
+            }`}
+            placeholder="Your name"
+          />
+          {showError("name") && (
+            <div className="mt-1 flex items-center gap-1 text-sm text-red-600 dark:text-red-400">
+              <AlertCircle className="h-4 w-4" />
+              <span>{errors.name}</span>
+            </div>
+          )}
+        </div>
+
+       
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium mb-1">
+            Email <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`w-full rounded-lg border px-3 py-2 transition-colors focus:outline-none focus:ring-2 ${
+              showError("email")
+                ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
+                : "border-gray-300 dark:border-gray-700 bg-transparent focus:border-sky-500 focus:ring-sky-200 dark:focus:ring-sky-800"
+            }`}
+            placeholder="your.email@example.com"
+          />
+          {showError("email") && (
+            <div className="mt-1 flex items-center gap-1 text-sm text-red-600 dark:text-red-400">
+              <AlertCircle className="h-4 w-4" />
+              <span>{errors.email}</span>
+            </div>
+          )}
+        </div>
+
+        
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium mb-1">
+            Message <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`w-full rounded-lg border px-3 py-2 transition-colors focus:outline-none focus:ring-2 resize-y ${
+              showError("message")
+                ? "border-red-500 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-800"
+                : "border-gray-300 dark:border-gray-700 bg-transparent focus:border-sky-500 focus:ring-sky-200 dark:focus:ring-sky-800"
+            }`}
+            placeholder="Your message here..."
+          />
+          <div className="mt-1 flex items-center justify-between">
+            {showError("message") ? (
+              <div className="flex items-center gap-1 text-sm text-red-600 dark:text-red-400">
+                <AlertCircle className="h-4 w-4" />
+                <span>{errors.message}</span>
+              </div>
+            ) : (
+              <div className="text-sm text-gray-500 dark:text-gray-400">
+                {formData.message.length}/1000 characters
+              </div>
+            )}
+          </div>
+        </div>
+
+        
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="w-full rounded-lg bg-sky-600 px-4 py-3 font-medium text-white hover:bg-sky-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        >
+          {status === "submitting" ? (
+            <>
+              <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              Sending...
+            </>
+          ) : (
+            "Send Message"
+          )}
+        </button>
+
+       
+        {status === "success" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-2 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg text-green-700 dark:text-green-400"
+          >
+            <CheckCircle className="h-5 w-5 flex-shrink-0" />
+            <span className="font-medium">Message sent successfully! I'll get back to you soon.</span>
+          </motion.div>
+        )}
+        
+        {status === "error" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-2 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400"
+          >
+            <AlertCircle className="h-5 w-5 flex-shrink-0" />
+            <span className="font-medium">Something went wrong. Please try again or email me directly.</span>
+          </motion.div>
+        )}
+      </form>
+    </motion.div>
+  )
+}
+</file>
+
 <file path="vite.config.js">
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -756,23 +771,383 @@ export default defineConfig({
 })
 </file>
 
-<file path="README.md">
-# React + Vite
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.env
+node_modules
+dist
+dist-ssr
+*.local
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 </file>
 
-<file path="src/index.css">
-@import "tailwindcss";
+<file path="src/components/Projects/projectDetails.jsx">
+import { useParams, Link } from "react-router-dom"
+import { ArrowLeft, Github, ExternalLink, Code, Server, Layers, Brain } from "lucide-react"
+import { projects } from "../../data/projects"
+
+export default function ProjectDetail() {
+  const { slug } = useParams()
+  const project = projects.find((p) => p.slug === slug)
+
+  if (!project) {
+    return (
+      <div className="max-w-3xl mx-auto py-10 px-6">
+        <p className="text-red-500 text-lg mb-4">Project not found.</p>
+        <Link to="/#projects" className="text-sky-600 hover:underline inline-flex items-center gap-2">
+          <ArrowLeft className="h-4 w-4" /> Back to Projects
+        </Link>
+      </div>
+    )
+  }
+
+  const categoryConfig = {
+    frontend: {
+      icon: Code,
+      bg: "bg-blue-100 dark:bg-blue-900/30",
+      text: "text-blue-700 dark:text-blue-300",
+      label: "Frontend Development"
+    },
+    backend: {
+      icon: Server,
+      bg: "bg-green-100 dark:bg-green-900/30",
+      text: "text-green-700 dark:text-green-300",
+      label: "Backend Development"
+    },
+    fullstack: {
+      icon: Layers,
+      bg: "bg-purple-100 dark:bg-purple-900/30",
+      text: "text-purple-700 dark:text-purple-300",
+      label: "Full-Stack Development"
+    },
+    ai: {
+      icon: Brain,
+      bg: "bg-orange-100 dark:bg-orange-900/30",
+      text: "text-orange-700 dark:text-orange-300",
+      label: "AI/ML Project"
+    }
+  }
+
+  const categoryInfo = categoryConfig[project.category] || categoryConfig.frontend
+  const CategoryIcon = categoryInfo.icon
+
+  return (
+    <div className="max-w-4xl mx-auto py-10 px-6">
+    
+      <Link
+        to="/#projects"
+        className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 mb-6 transition"
+      >
+        <ArrowLeft className="h-4 w-4" /> Back to Projects
+      </Link>
+
+      
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full rounded-2xl shadow-lg mb-8 object-cover max-h-110"
+      />
+
+      
+      <div className="mb-8">
+        
+        <div className="mb-4">
+          <span className={`${categoryInfo.bg} ${categoryInfo.text} px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-2`}>
+            <CategoryIcon className="h-4 w-4" />
+            {categoryInfo.label}
+          </span>
+        </div>
+
+        
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+          {project.title}
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300">
+          {project.description}
+        </p>
+
+        
+        <div className="mt-6 flex flex-wrap gap-2">
+          {project.tags.map((tag, i) => (
+            <span
+              key={i}
+              className="rounded-full bg-sky-100 px-4 py-1.5 text-sm font-medium text-sky-600 dark:bg-sky-900/50 dark:text-sky-300"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+       
+        <div className="mt-6 flex flex-wrap gap-4">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 transition shadow-md"
+            >
+              <Github className="h-5 w-5" />
+              View on GitHub
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-sky-600 text-white rounded-lg font-medium hover:bg-sky-700 transition shadow-md"
+            >
+              <ExternalLink className="h-5 w-5" />
+              View Live Demo
+            </a>
+          )}
+        </div>
+      </div>
+
+      
+      <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-800">
+          {project.content.split('\n\n').map((paragraph, index) => {
+            
+            if (paragraph.trim().startsWith('**') && paragraph.trim().endsWith('**')) {
+              const headerText = paragraph.replace(/\*\*/g, '').trim()
+              return (
+                <h3 key={index} className="text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white first:mt-0">
+                  {headerText}
+                </h3>
+              )
+            }
+            
+            
+            if (paragraph.trim().startsWith('- ')) {
+              const items = paragraph.split('\n').filter(line => line.trim().startsWith('- '))
+              return (
+                <ul key={index} className="space-y-2 mb-6">
+                  {items.map((item, i) => (
+                    <li key={i} className="text-gray-700 dark:text-gray-300">
+                      {item.replace('- ', '').replace(/\*\*/g, '')}
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+            
+            
+            return (
+              <p key={index} className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                {paragraph.replace(/\*\*/g, '').trim()}
+              </p>
+            )
+          })}
+        </div>
+      </div>
+
+      
+      <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <Link
+          to="/#projects"
+          className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 font-medium transition"
+        >
+          <ArrowLeft className="h-4 w-4" /> Back to All Projects
+        </Link>
+      </div>
+    </div>
+  )
+}
+</file>
+
+<file path="src/data/projects.jsx">
+export const projects = [
+
+  {
+    slug: "rideable-fe",
+    title: "rideAble - Accessible ride request",
+    description: "Accessible rides request platform to meet up with your clinical and hospital appointments.",
+    tags: ["React", "Google Maps", "Typescript", "Tailwind CSS", "ORS Geolocation"],
+    category: "frontend",
+    image: "/rideable-fe.png",
+    githubUrl: "https://github.com/amazingawwal/rideAble-FE",
+    liveUrl: "https://ride-able-fe.vercel.app/",
+    content: `
+an accessibility-focused web app that helps users manage mobility and accessibility-related services.
+
+**Features:**
+- User authentication with JWT tokens
+- Role-based access control (RBAC)
+- Input validation 
+
+**APIs Used:**
+- Google Maps API 
+- ORS Geolocation API for user location
+
+**Highlights:**
+Implemented data caching to reduce API calls and improve performance.
+    `,
+  },
+
+  
+  {
+    slug: "rideable-rest-api-nodejs",
+    title: "rideAble RESTful API with Node.js",
+    description: "Scalable REST API with authentication, validation, and database integration.",
+    tags: ["Node.js", "Nest.js", "Prisma", "JWT"],
+    category: "backend",
+    image: "/rideable-be.png",
+    githubUrl: "https://github.com/amazingawwal/rideAble-be",
+    content: `
+A production-ready RESTful API built with Node.js and Express, featuring comprehensive authentication and data management.
+
+**Key Features:**
+- User authentication with JWT tokens
+- Role-based access control (RBAC)
+- Input validation and sanitization
+- Error handling middleware
+- Rate limiting and security headers
+- API documentation with Swagger
+
+**Tech Stack:**
+- Node.js & Express for server
+- Prisma 
+- JWT for authentication
+- bcrypt for password hashing
+
+
+
+**Architecture Highlights:**
+- MVC pattern for code organization
+- Middleware chain for request processing
+- Custom error handling system
+- Database connection pooling
+- Environment-based configuration
+
+**Security Measures:**
+Implemented CORS, rate limiting, input sanitization, and SQL injection prevention.
+    `,
+  },
+  {
+    slug: "rusham-backend",
+    title: "Distress Sales Marketplace Backend API",
+    description: "Complete backend system with payment integration and order management.",
+    tags: ["Node.js", "PostgreSQL", "Paystack", "Nest.js", "Prisma"],
+    category: "backend",
+    image: "/rusham-fe.png",
+    githubUrl: "https://github.com/kodecampteam/distress-marketplace-be",
+    content: `
+A robust distress sales market place backend API handling products, orders, payments, and user management.
+
+**Core Features:**
+- Product catalog management (CRUD operations)
+- Shopping cart with session management
+- Order processing pipeline
+- Payment integration with Stripe
+- Inventory management
+- Email notifications
+- Admin dashboard endpoints
+
+**Database Design:**
+- PostgreSQL/Prisma for relational data
+- JWT for Authentication/Authorization
+- Database migrations with Sequelize
+- Optimized queries with indexes
+
+**Payment Processing:**
+- Secure Paystack integration
+- Webhook handling for payment events
+- Refund processing
+- Transaction logging
+
+**Performance Optimizations:**
+- Database query optimization
+- Connection pooling
+- Background job processing for emails
+    `,
+  },
+    
+  {
+    slug: "prompt-chaining-ai",
+    title: "Prompt Chaining with OpenRouter",
+    description: "Multi-step AI pipeline for intelligent customer support query processing.",
+    tags: ["Python", "OpenRouter API", "LLM", "Prompt Engineering"],
+    category: "ai",
+    image: '/prompt-chain.png',
+    githubUrl: "https://github.com/amazingawwal/Prompt-Chaining",
+    content: `
+A sophisticated prompt-chaining pipeline that demonstrates advanced AI prompt engineering techniques using the OpenRouter API to process customer support queries through multiple intelligent stages.
+
+**What is Prompt Chaining?**
+Prompt chaining is a technique where complex AI tasks are broken down into smaller, sequential steps. Each step's output becomes the input for the next step, creating a logical pipeline that produces more accurate and controllable results than a single monolithic prompt.
+
+**The Five-Step Pipeline:**
+
+**Step 1: Intent Interpretation**
+The AI analyzes the customer's message to understand their core need or problem in simple terms.
+
+**Step 2: Category Mapping**
+Based on the interpreted intent, the system suggests up to three relevant issue categories with reasoning for each suggestion.
+
+**Step 3: Category Selection**
+The AI evaluates the suggested categories and chooses the most appropriate one for routing the query.
+
+**Step 4: Detail Extraction**
+Structured information is extracted from the query, such as dates, card numbers, account details, or other relevant data points needed to resolve the issue.
+
+**Step 5: Response Generation**
+A polite, customer-facing reply is generated that addresses the specific issue with the appropriate level of empathy and information.
+
+**Technical Implementation:**
+- Python 3.10+ for core logic
+- OpenRouter API for flexible LLM access
+- Environment-based configuration with python-dotenv
+- Modular function design for each chain step
+- JSON parsing for structured data extraction
+
+**Key Features:**
+- Sequential reasoning for complex queries
+- Flexible model selection (supports GPT-4, Claude, and other models via OpenRouter)
+- Structured data extraction from natural language
+- Easy to debug and modify individual steps
+- Cost-effective API usage through OpenRouter
+
+**Use Cases:**
+- Customer support automation
+- Content moderation pipelines
+- Document processing workflows
+- Multi-step decision systems
+- Data extraction and transformation
+    `,
+  },
+]
+
+
+export const getFrontendProjects = () => 
+  projects.filter(p => p.category === 'frontend')
+
+export const getBackendProjects = () => 
+  projects.filter(p => p.category === 'backend')
+
+export const getFullstackProjects = () => 
+  projects.filter(p => p.category === 'fullstack')
+
+export const getAllCategories = () => 
+  [...new Set(projects.map(p => p.category))]
 </file>
 
 <file path="src/main.jsx">
@@ -792,6 +1167,143 @@ createRoot(document.getElementById("root")).render(
 );
 </file>
 
+<file path="README.md">
+# Portfolio Website
+A modern, responsive portfolio website built with React, showcasing my projects and skills as a full-stack developer. Features dark mode, smooth animations, and a validated contact form.
+
+# Features
+- Modern UI/UX - Clean, professional design with smooth animations
+- Fully Responsive - Works seamlessly on desktop, tablet, and mobile devices
+- Project Filtering - Filter projects by category (Frontend, Backend, Full-Stack, AI/ML)
+- Contact Form - Validated contact form with real-time error checking
+- Fast Performance - Built with Vite for lightning-fast load times
+- Accessible - WCAG compliant with keyboard navigation and screen reader support
+- SEO Optimized - Proper meta tags and semantic HTML
+
+
+# Built With
+- Frontend Framework: React 19
+- Build Tool: Vite 7
+- Styling: Tailwind CSS 4 and Framer Motion
+- Animations: Framer Motion
+- Routing: React Router 7
+- Icons: Lucide React
+- Form Handling: FormSpree
+
+
+# Author
+Sakeeb A Ayigoro
+- GitHub: [@amazingawwal](https://github.com/amazingawwal)
+- LinkedIn: [Sakeeb Ayigoro](https://www.linkedin.com/in/sakeeb-ayigoro)
+- Email: sakeebmawwal@gmail.com
+</file>
+
+<file path="src/components/Navbar/navbar.jsx">
+import { useState, useEffect } from "react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+
+export default function Navbar() {
+  const [dark, setDark] = useState(() => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    return savedTheme === 'dark';
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+});
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+useEffect(() => {
+  if (dark) {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem('theme', 'light');
+  }
+}, [dark])
+
+  const navLinks = [
+    { href: "#about", label: "About" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+  };
+
+  return (
+    <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md dark:bg-gray-900/70">
+      <nav className="container mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="/" className="text-xl font-bold text-sky-600">
+          aA
+        </a>
+
+      
+        <ul className="hidden gap-6 md:flex">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="text-gray-700 hover:text-sky-600 dark:text-gray-200 dark:hover:text-sky-400 transition"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+
+      
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={() => setDark(!dark)}
+            className="rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+            aria-label="Toggle dark mode"
+          >
+            {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+      </nav>
+
+     
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+          <ul className="container mx-auto max-w-6xl px-6 py-4 space-y-3">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={handleNavClick}
+                  className="block py-2 text-gray-700 hover:text-sky-600 dark:text-gray-200 dark:hover:text-sky-400 transition"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+}
+</file>
+
+<file path="src/index.css">
+@import "tailwindcss";
+</file>
+
 <file path="package.json">
 {
   "name": "portfolio",
@@ -806,8 +1318,6 @@ createRoot(document.getElementById("root")).render(
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
     "lucide-react": "^0.541.0",
     "motion": "^12.23.12",
     "react": "^19.1.1",
@@ -831,12 +1341,9 @@ createRoot(document.getElementById("root")).render(
 </file>
 
 <file path="src/App.jsx">
-import { Routes, Route } from "react-router-dom"
-import Navbar from "./Components/Navbar/navbar"
+import Navbar from "./components/Navbar/navbar"
 import ProjectView from "./pages/projectView"
-// import Hero from "./components/Hero/hero"
-// import Projects from "./components/Projects/projects"
-// import ProjectDetail from "./components/Projects/projectDetails"
+
 
 export default function App() {
   return (
