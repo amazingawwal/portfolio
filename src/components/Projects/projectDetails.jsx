@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import { ArrowLeft, Github, ExternalLink, Code, Server, Layers, Brain } from "lucide-react"
-import { projects } from "../../Data/projects"
+import { projects } from "../../data/projects"
 
 export default function ProjectDetail() {
   const { slug } = useParams()
