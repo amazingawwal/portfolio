@@ -23,7 +23,6 @@ A modern, responsive portfolio website built with React, showcasing my projects 
 
 # Author
 Sakeeb A Ayigoro
-
 - GitHub: [@amazingawwal](https://github.com/amazingawwal)
 - LinkedIn: [Sakeeb Ayigoro](https://www.linkedin.com/in/sakeeb-ayigoro)
 - Email: sakeebmawwal@gmail.com
