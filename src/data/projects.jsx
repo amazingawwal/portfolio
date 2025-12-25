@@ -159,6 +159,96 @@ A polite, customer-facing reply is generated that addresses the specific issue w
 - Data extraction and transformation
     `,
   },
+  {
+    slug: "rag-system-chromadb",
+    title: "RAG System with ChromaDB",
+    description: "Production-ready Retrieval-Augmented Generation system with semantic chunking and vector embeddings.",
+    tags: ["Node.js", "ChromaDB", "RAG", "Vector DB", "HuggingFace", "Gemini AI"],
+    category: "ai",
+    image: "/RAG.png",
+    githubUrl: "https://github.com/amazingawwal/rag-system",
+    content: `
+A production-ready Retrieval-Augmented Generation (RAG) system that combines semantic search with AI-powered question answering, enabling intelligent document analysis and contextual responses.
+
+**What is RAG?**
+RAG (Retrieval-Augmented Generation) is an advanced AI architecture that enhances Large Language Models by retrieving relevant information from a knowledge base before generating responses. This prevents hallucinations and enables AI to answer questions based on specific, verifiable documents.
+
+**System Architecture:**
+
+
+
+The system implements a sophisticated pipeline:
+1. Documents are semantically chunked based on sentence boundaries
+2. Text chunks are converted to vector embeddings using HuggingFace transformers
+3. Embeddings are stored in ChromaDB for efficient similarity search
+4. User queries are vectorized and matched against the knowledge base
+5. Relevant context is retrieved and fed to Google's Gemini LLM
+6. The AI generates accurate, context-aware responses
+
+**Key Features:**
+
+**Semantic Document Chunking**
+Intelligently splits documents based on natural language boundaries and configurable word count, preserving context and meaning rather than arbitrary character limits.
+
+**Vector Embeddings**
+Uses HuggingFace's sentence-transformers/all-MiniLM-L6-v2 model to generate high-quality 384-dimensional embeddings that capture semantic meaning.
+
+**ChromaDB Vector Storage**
+Persistent vector database with efficient cosine similarity search, supporting millions of embeddings with millisecond query times.
+
+**AI-Powered Answers**
+Leverages Google's Gemini 1.5 Flash model for natural, accurate responses based on retrieved context.
+
+**Dynamic Rechunking**
+Re-process existing documents with different chunk sizes without re-uploading, allowing optimization based on use case.
+
+**Context Filtering**
+Organize documents by project or topic, enabling focused searches within specific knowledge domains.
+
+**RESTful API**
+Simple HTTP endpoints for document upload, querying, rechunking, and health monitoring.
+
+**Technical Implementation:**
+
+**Backend Stack:**
+- Node.js with Express for API server
+- Multer for multipart file uploads
+- ChromaDB client for vector operations
+- HuggingFace Inference API for embeddings
+- Google Generative AI SDK for LLM integration
+
+**Vector Database:**
+- ChromaDB running in Docker container
+- Persistent storage with collection management
+- Cosine similarity search with configurable k-nearest neighbors
+- Metadata filtering for context-aware retrieval
+
+**Embedding Pipeline:**
+- Sentence-based chunking with configurable size
+- Batch embedding generation for efficiency
+- Automatic retry logic with exponential backoff
+- Error handling for rate limits and API failures
+
+
+
+**Use Cases:**
+
+**Document Q&A Systems:**
+Build intelligent chatbots that answer questions based on company documentation, technical manuals, or knowledge bases.
+
+**Research Assistant:**
+Index academic papers, research documents, or books and query them for specific information with source attribution.
+
+**Customer Support:**
+Create AI assistants that provide accurate answers from support documentation, FAQs, and troubleshooting guides.
+
+**Legal/Compliance:**
+Search through contracts, regulations, or legal documents with semantic understanding beyond keyword matching.
+
+**Content Analysis:**
+Analyze large document collections to extract insights, patterns, or specific information across multiple sources.
+    `,
+  },
 ]
 
 
