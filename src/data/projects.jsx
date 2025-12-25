@@ -170,19 +170,22 @@ A polite, customer-facing reply is generated that addresses the specific issue w
     content: `
 A production-ready Retrieval-Augmented Generation (RAG) system that combines semantic search with AI-powered question answering, enabling intelligent document analysis and contextual responses.
 
-**What is RAG?**
 RAG (Retrieval-Augmented Generation) is an advanced AI architecture that enhances Large Language Models by retrieving relevant information from a knowledge base before generating responses. This prevents hallucinations and enables AI to answer questions based on specific, verifiable documents.
 
 **System Architecture:**
 
-
-
 The system implements a sophisticated pipeline:
+
 1. Documents are semantically chunked based on sentence boundaries
+
 2. Text chunks are converted to vector embeddings using HuggingFace transformers
+
 3. Embeddings are stored in ChromaDB for efficient similarity search
+
 4. User queries are vectorized and matched against the knowledge base
+
 5. Relevant context is retrieved and fed to Google's Gemini LLM
+
 6. The AI generates accurate, context-aware responses
 
 **Key Features:**
