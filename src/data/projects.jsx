@@ -166,7 +166,7 @@ A polite, customer-facing reply is generated that addresses the specific issue w
     tags: ["Node.js", "ChromaDB", "RAG", "Vector DB", "HuggingFace", "Gemini AI"],
     category: "ai",
     image: "/RAG.png",
-    githubUrl: "https://github.com/amazingawwal/rag-system",
+    githubUrl: "https://github.com/amazingawwal/RAG",
     content: `
 A production-ready Retrieval-Augmented Generation (RAG) system that combines semantic search with AI-powered question answering, enabling intelligent document analysis and contextual responses.
 
